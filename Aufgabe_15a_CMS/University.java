@@ -28,11 +28,10 @@ public class University {
     }
 
     public static void main(String[] args) {
-        University uniPassau = new University(4);
-        uniPassau.arrayOfStudents[0] = new Student("Wagner", "Lisa", 63119, "Informatik Master", 4);
-        uniPassau.arrayOfStudents[1] = new Student("Werli", "Phil", 54321, "Internet Computing BA", 5);
-        uniPassau.arrayOfStudents[2] = new Student("Bieber", "Justin", 12345, "Musicology", 3);
-        uniPassau.arrayOfStudents[3] = new Student("Manuel", "Neuer", 11111, "Goalkeeping Master", 10);
+        University uniPassau = new University(3);
+        uniPassau.arrayOfStudents[0] = new Student("Werli", "Phil", 54321, "Internet Computing BA", 6);
+        uniPassau.arrayOfStudents[1] = new Student("Bieber", "Justin", 12345, "Musicology", 3);
+        uniPassau.arrayOfStudents[2] = new Student("Manuel", "Neuer", 11111, "Goalkeeping Master", 10);
         uniPassau.printStudents();
     }
 

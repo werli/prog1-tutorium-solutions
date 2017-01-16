@@ -11,7 +11,7 @@ public class GreetArray {
     public static void main(String[] args) {
 
         //names Array deklarieren und initialisieren
-        String[] names = {"Lisa", "Phil"};
+        String[] names = {"Fabian", "Christoph", "Phil"};
 
         // Ausgabe des names Array
         for (int i = 0; i < names.length; i++) {
