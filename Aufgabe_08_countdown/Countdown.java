@@ -3,8 +3,8 @@ package Aufgabe_08_countdown;
 /**
  * Schreibe ein Programm, welches eine Methode countdown(int n) hat. Diese Methode
  * soll rekursiv von n bis 1 herunterzählen und dabei jede Zahl ausgeben.
- * Hinweis: Eine <i>rekursive</i> Funktion ruft sich selbst auf. Fehlt eine Abbruchbedingung, läuft
- * sie ewig weiter.
+ * Hinweis: Eine <i>rekursive</i> Funktion ruft sich selbst auf. Fehlt eine
+ * Abbruchbedingung, läuft sie ewig weiter.
  * <p>
  * <code>
  * Beispielausgabe:

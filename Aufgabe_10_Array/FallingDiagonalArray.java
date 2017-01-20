@@ -22,18 +22,25 @@ public class FallingDiagonalArray {
     public static void main(String[] args) {
         // Lösung aus Teilaufgabe (e). Garantiert ein quadratisches Array.
         int size = 5;
-/*         Der Wert eines boolean ist ohne explizierte Deklaration <code>false</code>.
-         Das heißt, das unten erstelle zweidimensionale Array besteht erstmal NUR aus <code>false</code> Werten.*/
+        /*
+         * Der Wert eines boolean ist ohne explizierte Deklaration <code>false</code>.
+         * Das heißt, das unten erstelle zweidimensionale Array besteht erstmal NUR aus <code>false</code> Werten.
+         */
         boolean[][] array = new boolean[size][size];
 
         /*
-        Die fallende Diagonale: [0][0], [1][1],
-        .
-        .
-        .
-        [array.length -1][array.length -1]
-
-        Laufzeit: O(n^2)
+         * Idee: Die fallende Diagonale ist genau dann, wenn Index der Zeile gleich dem Index der Spalte ist.
+         *
+         * [0][0],
+         * [1][1],
+         * .
+         * .
+         * .
+         * [array.length -1][array.length -1]
+         * Hier wird array.length - 1 gewählt, da der Index für die Länge des Arrays bei 1 beginnt, wohingegen
+         * der Index für die Elemente des Arrays bei 0 beginnt.
+         *
+         * Laufzeit: O(n^2).
          */
         for (int row = 0; row < array.length; row++) {
             for (int column = 0; column < array[row].length; column++) {
@@ -44,11 +51,10 @@ public class FallingDiagonalArray {
         }
 
         /*
-        Die fallende Diagonale ist immer dann, wenn row == column.
-        Wenn man column nur dann braucht, wenn sie gleich row sind, braucht
-        man column gar nicht.
-
-        Statt O(n^2) ist die Laufzeit somit O(n)
+         * Optimierungsidee: Man braucht column nur dann, wenn es den selben Wert wie row hat.
+         * Dadurch kann man sich die Schleife einsparen, die die Spalten durchgegangen ist.
+         *
+         * Dadurch erreicht man statt quadratischer Laufzeit O(n^2) eine lineare Laufzeit O(n).
          */
         for (int i = 0; i < array.length; i++) {
             array[i][i] = true;

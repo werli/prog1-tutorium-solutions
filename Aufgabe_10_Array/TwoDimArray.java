@@ -9,19 +9,33 @@ package Aufgabe_10_Array;
 public class TwoDimArray {
 
     public static void main(String[] args) {
-        // Anlegen eines zweidimensionalen Arrays, welches wiederum
-        // aus lauter eindimensionalen Arrays besteht.
+        /*
+        * Anlegen eines Arrays, das wiederum boolean Arrays beinhaltet.
+        * In diesen kann man dann boolean Werte speichern.
+        */
         boolean[][] array = {
                 new boolean[]{true, false, true, false, true},
                 new boolean[]{true, true, false, true, false},
                 new boolean[]{false, true, true, false, true},
                 new boolean[]{true, false, true, true, false},
-                new boolean[]{false, true, false, true, true},
+                new boolean[]{false, true, false, true, true}
         };
+        /*
+        Alternative Deklaration.
+        boolean[][] array = {
+                {true, false, true, false, true},
+                {true, true, false, true, false},
+                {false, true, true, false, true},
+                {true, false, true, true, false},
+                {false, true, false, true, true}
+        };
+        */
 
-        // gibt das Array Zeile für Zeile, Spalte für Spalte aus
+        /*
+         * Gibt das Array Zeile für Zeile, Spalte für Spalte aus.
+         */
         for (int row = 0; row < array.length; ++row) {
-            // array[row].length gibt die Anzahl der Spalten in der Zeile row aus
+            // array[row].length gibt die Anzahl der Spalten in der Zeile am Index row aus.
             for (int column = 0; column < array[row].length; ++column) {
                 if (array[row][column]) {
                     System.out.print('X');

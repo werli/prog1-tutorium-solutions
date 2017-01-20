@@ -29,10 +29,10 @@ public class outputArray {
      * eine fallende Diagonale Linie hinzugefügt wird.
      *
      * @param array ein Zweidimensionales Array, das eine fallende Diagonale bekommt.
+     * @see Aufgabe_10_Array.FallingDiagonalArray
      */
     private static void addDiagFalling(boolean[][] array) {
         for (int i = 0; i < array.length; ++i) {
-            // Auf der Diagonale sind die Indices gleich
             array[i][i] = true;
         }
     }
@@ -42,6 +42,7 @@ public class outputArray {
      * eine steigende Diagonale Linie hinzugefügt wird.
      *
      * @param array ein Zweidimensionales Array, das eine steigende Diagonale bekommt.
+     * @see Aufgabe_10_Array.CrossArray
      */
     private static void addDiagRising(boolean[][] array) {
         for (int i = 0; i < array.length; ++i) {
@@ -56,7 +57,7 @@ public class outputArray {
      *
      * @param array Das auszugebene Array.
      */
-    public static void printArray(boolean[][] array) {
+    private static void printArray(boolean[][] array) {
         // gibt das Array Zeile für Zeile, Spalte für Spalte aus
         for (int row = 0; row < array.length; ++row) {
             // array[row].length gibt die Anzahl der Spalten in der Zeile row aus
@@ -69,6 +70,10 @@ public class outputArray {
                 System.out.print(" ");
             }
             System.out.println();
+            /*
+             * Alternative: direkte Ausgabe einer neuen Zeile.
+             * System.out.print("\n");
+             */
         }
     }
 }

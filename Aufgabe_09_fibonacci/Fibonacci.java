@@ -21,16 +21,20 @@ package Aufgabe_09_fibonacci;
 public class Fibonacci {
     public static void main(String[] args) {
         // (a)
+        System.out.println("Teilaufgabe (a):");
         for (int i = 0; i <= 30; i++) {
-            System.out.println(fib(i));
+            System.out.println("Die Fibonacci-Zahl von " + i + " lautet " + fib(i) + ".");
         }
 
         // (b)
+        System.out.println("Teilaufgabe (b):");
         int i = 0;
-        while (fib(i) < 1000) {
+        int maximum = 1000;
+        while (fib(i) < maximum) {
             i++;
         }
-        System.out.println(fib(i));
+        System.out.println("Die erste Fibonacci-Zahl über " + maximum +
+                " ist die Fibonacci-Zahl von " + i + " und lautet " + fib(i) + ".");
     }
 
     /**
@@ -40,11 +44,12 @@ public class Fibonacci {
      * @return Fibonaccizahl der gegebenen Zahl n.
      */
     private static int fib(int n) {
-        // if ((n == 0) || (n == 1)) {
-        if (n < 2) {
+
+        // Deckt fib(0) = 1 und fib(1) = 1 ab.
+        if (n == 0 || n == 1) {
             return 1;
         } else {
-            // doppelter rekursiver Aufruf
+            // doppelter rekursiver Aufruf deckt fib(n) = fib(n-1) + fib(n-2) ab.
             return fib(n - 1) + fib(n - 2);
         }
     }
