@@ -1,10 +1,10 @@
 package Aufgabe_15c_CMS;
 
+import Aufgabe_15a_CMS.Student;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-
-import Aufgabe_15a_CMS.Student;
 
 /**
  * Erweitere das Programm, sodass im Konstruktor der Klasse University die Daten von (beliebig vielen) Studierenden
@@ -51,8 +51,10 @@ public class University {
         boolean quit = false;
         int counter = 0;
 
-        // Schleifenbedingung: So lange User Input eingeben möchte und solange die Uni Plätze (array.size) hat, läuft
-        // die Schleife weiter.
+        /*
+         * Schleifenbedingung: Solange der Benutzer Input eingeben möchte
+         * und gleichzeitig die Uni noch Platz hat, läuft die Schleife weiter.
+         */
         while (!quit && counter < arrayOfStudents.length) {
             try {
                 System.out.println("Vorname:");
@@ -77,7 +79,7 @@ public class University {
 
                 counter++;
             } catch (IOException error) {
-                System.out.println("Error while reading input.");
+                System.out.println("Fehler beim Einlesen.");
             }
         }
 
@@ -94,11 +96,15 @@ public class University {
         boolean success = false;
         while (!success) {
             try {
-                String input = reader.readLine();
-                number = Integer.parseInt(input);
+                number = Integer.parseInt(reader.readLine());
+                if (0 >= number) {
+                    throw new IllegalArgumentException();
+                }
                 success = true;
             } catch (NumberFormatException error) {
                 System.out.println("Bitte eine Zahl eingeben!");
+            } catch (IllegalArgumentException error) {
+                System.out.println("Es muss eine positive Zahl eingegeben werden!");
             }
         }
         return number;
@@ -109,17 +115,26 @@ public class University {
      * Wenn 'weiter' als Input kommt, ist das Ergebnis true.
      * Ansonsten ist das Ergebnis false.
      *
-     * @return Ob das Programm weiter läuft.
+     * @return ob das Programm weiter läuft.
      * @throws IOException Wirft eine IOException, wenn der Input fehlschlägt.
      */
     private boolean validateContinue(BufferedReader reader, int counter) throws IOException {
         boolean quit = false;
+        boolean success = false;
         if (counter < arrayOfStudents.length - 1) {
-                    /* Do not display this line the very last time. */
+            // Do not display this line the very last time.
             System.out.println("Weiter? weiter/fertig");
-
-            String input = reader.readLine();
-            quit = !(input.equals("weiter"));
+            while (!success) {
+                String input = reader.readLine();
+                if (input.equals("weiter")) {
+                    success = true;
+                } else if (input.equals("fertig")) {
+                    success = true;
+                    quit = true;
+                } else {
+                    System.out.println("Bitte entweder 'weiter' oder 'fertig' eingeben.");
+                }
+            }
         }
         return quit;
     }
@@ -128,12 +143,8 @@ public class University {
      * Methode zum Ausgeben der Studierenden auf der Konsole.
      */
     private void printStudents() {
-        System.out.println("List of students:");
-
-        // Um die Studierenden auszugeben, wird für alle Studierenden, also für jedes Array-Element,
-        // die toString-Methode der Student-Klasse genutzt.
-        // Da wir nicht wissen, wie viele Studierende eingegeben wurden, müssen wir unsere Schleifenabbruchbedingung
-        // entsprechend erweitern.
+        System.out.println("Liste an Studierenden:");
+        // Durchgehen und Ausgeben aller Studierenden
         for (int i = 0; i < arrayOfStudents.length && arrayOfStudents[i] != null; i++) {
             System.out.println(arrayOfStudents[i]);
         }

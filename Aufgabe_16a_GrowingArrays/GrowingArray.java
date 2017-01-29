@@ -1,7 +1,7 @@
 package Aufgabe_16a_GrowingArrays;
 
 /**
- * * Erstelle eine Klasse GrowingArray, in welcher eine Reihe von int-Werten gespeichert werden kann.
+ * Erstelle eine Klasse GrowingArray, in welcher eine Reihe von int-Werten gespeichert werden kann.
  * Verwende ein Array mit 10 Elementen, um die Werte abzulegen.
  * Sobald das Array zu klein wird, um weitere Werte aufzunehmen, sollen alle Werte in ein neues Array doppelter Größe
  * kopiert werden. Folgende Methoden soll GrowingArray besitzen:
@@ -37,12 +37,12 @@ public class GrowingArray {
     }
 
     /**
-     * Konstruktor, der schon eine initiale Größe des Arrays festlegt.
+     * Konstruktor, der eine übergebene Größe für das Array festlegt.
      *
-     * @param n Größe des Arrays.
+     * @param size Größe des Arrays.
      */
-    public GrowingArray(int n) {
-        array = new int[n];
+    public GrowingArray(int size) {
+        array = new int[size];
         curPos = 0;
     }
 
@@ -79,26 +79,28 @@ public class GrowingArray {
             for (int i = 0; i < array.length; i++) {
                 newArray[i] = array[i];
             }
+
+            // Die oben implementiert Funktionalität gibt es schon in der statischen Methode Arrays.copyOf(int[], int)
+            // array = Arrays.copyOf(array, array.length * 2);
+
             // Damit unser GrowingArray-Objekt in Zukunft das neue Array übernimmt, setzen wir array = newArray.
             array = newArray;
         }
-        // Schließlich muss nur noch die cursor position geupdated und hochgezählt werden.
+        // Schließlich muss nur noch die Cursor Position geupdated und hochgezählt werden.
         array[curPos] = value;
         curPos++;
     }
 
     /**
-     * Gibt den Wert an der Position pos zurück, beginnend bei 0.
+     * Gibt den Wert an der Position pos zurück.
      *
      * @param pos Die Position deren Wert gefunden werden soll.
      * @return Der Wert an der gegebenen Position.
+     * @throws IllegalArgumentException wenn die übergebene Position nicht im Array ist.
      */
-    public int get(int pos) {
-        if (pos > curPos) {
-            // Falls es an der spezifizierten Stelle keinen Wert gibt, wird der
-            // kleinstmögliche Wert zurückgegeben.
-            System.out.println("Das Array ist nicht groß genug, um diese Position auszugeben.");
-            return Integer.MIN_VALUE;
+    public int get(int pos) throws IllegalArgumentException {
+        if (pos > curPos || pos < 0) {
+            throw new IllegalArgumentException("Das Array ist nicht groß genug, um diese Position auszugeben.");
         } else {
             return array[pos];
         }
@@ -119,8 +121,10 @@ public class GrowingArray {
      * @return Anzahl der Elemente.
      */
     public int size() {
-        // Da curPos immer gleich der aktuellen Größe ist, können wir es
-        // einfach als Größe zurückgeben.
+        /*
+         * Da curPos immer gleich der aktuellen Größe ist, können wir es
+         * einfach als Größe zurückgeben.
+         */
         return curPos;
     }
 
@@ -129,8 +133,6 @@ public class GrowingArray {
      */
     private void print() {
         for (int i = 0; i < curPos; i++) {
-            // Um der Schleife die Anweisung zu geben, nach der letzten Stelle im Array kein "," mehr auzugeben
-            // benutzen wir diesen Trick.
             if (i == 0) {
                 System.out.print("{" + array[i] + "}");
             } else {

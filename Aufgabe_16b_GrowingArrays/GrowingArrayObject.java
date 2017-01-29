@@ -1,7 +1,5 @@
 package Aufgabe_16b_GrowingArrays;
 
-import com.sun.istack.internal.Nullable;
-
 import Aufgabe_15a_CMS.Student;
 import Aufgabe_16a_GrowingArrays.GrowingArray;
 
@@ -20,18 +18,18 @@ public class GrowingArrayObject {
     /**
      * Konstruktor für Growing-Array-Objekt.
      */
-    public GrowingArrayObject() {
-        array = new Object[10]; // Erstellung eines generisches Arrays ist leider sehr umständlich.
+    public GrowingArrayObject(int size) {
+        array = new Object[size];
         curPos = 0;
     }
 
     public static void main(String[] args) {
         // Test
-        GrowingArrayObject array = new GrowingArrayObject();
+        GrowingArrayObject array = new GrowingArrayObject(10);
         System.out.println("Ist das Array leer? " + array.isEmpty());
 
         // Nachdem jede Klasse von Object erbt, kann man ALLES in diesem Array speichern.
-        array.add(1);      // Integer? Kein Problem.
+        array.add(1);      // Integer?
         array.add(2.1);    // Floats?
         array.add('c');    // Character? Kein Problem.
         array.add(100);    // Noch einen Integer,
@@ -64,26 +62,28 @@ public class GrowingArrayObject {
             for (int i = 0; i < array.length; i++) {
                 newArray[i] = array[i];
             }
+
+            // Die oben implementiert Funktionalität gibt es schon in der statischen Methode Arrays.copyOf(int[], int)
+            // array = Arrays.copyOf(array, array.length * 2);
+
             // Damit unser GrowingArrayObject-Objekt in Zukunft das neue Array übernimmt, setzen wir array = newArray.
             array = newArray;
         }
-        // Schließlich muss nur noch die cursor position geupdated und hochgezählt werden.
+        // Schließlich muss nur noch die Cursor Position geupdated und hochgezählt werden.
         array[curPos] = value;
         curPos++;
     }
 
     /**
-     * Gibt den Wert an der Position pos zurück, beginnend bei 0.
+     * Gibt den Wert an der Position pos zurück.
      *
      * @param pos Die Position deren Wert gefunden werden soll.
-     * @return Das Objekt an der gegebenen Position.
+     * @return Der Wert an der gegebenen Position.
+     * @throws IllegalArgumentException wenn die übergebene Position nicht im Array ist.
      */
-    @Nullable // dies sagt aus, dass die Methode auch null zurückgeben könnte.
-    public Object get(int pos) {
-        if (pos > curPos) {
-            // Falls es an der spezifizierten Stelle keinen Wert gibt, wird null zurückgegeben.
-            System.out.println("Das Array ist nicht groß genug, um diese Position auszugeben.");
-            return null;
+    public Object get(int pos) throws IllegalArgumentException {
+        if (pos > curPos || pos < 0) {
+            throw new IllegalArgumentException("Das Array ist nicht groß genug, um diese Position auszugeben.");
         } else {
             return array[pos];
         }
@@ -104,8 +104,10 @@ public class GrowingArrayObject {
      * @return Anzahl der Elemente.
      */
     public int size() {
-        // Da curPos immer gleich der aktuellen Größe ist, können wir es
-        // einfach als Größe zurückgeben.
+        /*
+         * Da curPos immer gleich der aktuellen Größe ist, können wir es
+         * einfach als Größe zurückgeben.
+         */
         return curPos;
     }
 
@@ -114,8 +116,6 @@ public class GrowingArrayObject {
      */
     private void print() {
         for (int i = 0; i < curPos; i++) {
-            // Um der Schleife die Anweisung zu geben, nach der letzten Stelle im Array kein "," mehr auzugeben
-            // benutzen wir diesen Trick.
             if (i == 0) {
                 System.out.print("{" + array[i] + "}");
             } else {
@@ -125,4 +125,3 @@ public class GrowingArrayObject {
         System.out.println();
     }
 }
-

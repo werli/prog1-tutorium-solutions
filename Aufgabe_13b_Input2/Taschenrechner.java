@@ -1,8 +1,9 @@
-package Aufgabe_13b_BufferedReader2;
+package Aufgabe_13b_Input2;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Scanner;
 
 /**
  * Schreibe ein Programm, welches zunächst eine Zahl (ganzzahlig), dann eine Rechenoperation (+,−,∗,/)
@@ -10,76 +11,132 @@ import java.io.InputStreamReader;
  * Dabei soll jede Eingabe in einer eigenen Zeile eingelesen werden.
  * Das Programm soll dann das Ergebnis der Rechenoperation ausgeben.
  * <p>
+ * <p>
+ * In dieser Lösung ist die Umsetzung mit einen {@link BufferedReader} in der {@link #main(String[])}-Methode
+ * und mit einem {@link Scanner} in der {@link #calcWithScanner()}-Methode.
  *
  * @author Phil Werli
  */
 public class Taschenrechner {
 
     public static void main(String[] args) {
-        /*
-        Initialisierung des "reader", mit dem ihr Konsoleneingaben einlesen könnt.
-        Der InputStreamReader dekodiert die Bytes, die ihr in der Konsole eingebt, in Characters.
-        Der BufferedReader bietet einen Buffer, der es ermöglicht, den input effizienter einzulesen.
-        */
-        BufferedReader reader = new BufferedReader(new InputStreamReader(
-                System.in));
+        Taschenrechner calc = new Taschenrechner();
+        System.out.println("Calculator using the BufferedReader:");
+        calc.calcWithBufferedReader();
+    }
+
+    private void calcWithBufferedReader() {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
         /*
-        Lesevorgang und Speichern der Eingaben in drei Strings. Der Lesevorgang könnte eine I/O-Exception zur
-        Folge haben, weshalb ihr diese in einem try-catch-Block behandeln müsst.
-        */
+         * Lesevorgang und Speichern der Eingaben in drei Strings. Der Lesevorgang könnte eine IOException zur
+         * Folge haben, der diesmal in einem try / catch Block behandelt wird.
+         */
         try {
-            String numberOne = reader.readLine();
+            String input1 = reader.readLine();
             String operator = reader.readLine();
-            String numberTwo = reader.readLine();
+            String input2 = reader.readLine();
 
             /*
-            Der InputStreamReader liest einen String ein, den ihr erst in int bzw. Integer umwandeln (sog. parsen)
-            müsst, um mit ihnen rechnen zu können. Dafür verwendet man die parseInt(String input) der Integer Klasse.
-            */
-            int firstNumber = Integer.parseInt(numberOne);
-            int secondNumber = Integer.parseInt(numberTwo);
-
-            /**
-             * Wichtig: Strings müssen mit der {@link Object#equals(Object)} Methode der {@link Object} Klasse
-             * verglichen werden. Der Operator '==' vergleich die Referenzen, nicht ob der Inhalt der Objekte gleich ist.
-             *
+             * Der InputStreamReader liest einen String ein, den ihr erst in int bzw. Integer umwandeln (sog. parsen)
+             * müsst, um mit ihnen rechnen zu können. Dafür verwendet man die parseInt(String input) der Integer Klasse.
              */
-            // WICHTIG: Strings werden mit "equals" verglichen, nicht mit == oder !=. "Equals" vergleicht den tatsächlichen
-            // Inhalt der Strings, "==" nur die Objektreferenzen.
+            int num1 = Integer.parseInt(input1);
+            int num2 = Integer.parseInt(input2);
+
+            /*
+             * Wichtig: Strings müssen mit der {@link Object#equals(Object)} Methode der {@link Object} Klasse
+             * verglichen werden. Der Operator '==' vergleich die Objekt-Referenzen, nicht ob der Inhalt
+             * der Objekte gleich ist.
+             */
+            String output = "";
             if (operator.equals("+")) {
-                System.out.println(firstNumber + " " + operator + " "
-                        + secondNumber + " = " + (firstNumber + secondNumber));
+                output = num1 + " " + operator + " " + num2 + " = " + (num1 + num2);
+
             } else if (operator.equals("-")) {
-                System.out.println(firstNumber + " " + operator + " "
-                        + secondNumber + " = " + (firstNumber - secondNumber));
+                output = num1 + " " + operator + " " + num2 + " = " + (num1 - num2);
+
             } else if (operator.equals("*")) {
-                System.out.println(firstNumber + " " + operator + " "
-                        + secondNumber + " = " + (firstNumber * secondNumber));
-            } else if (operator.equals("/")) {
-                // Sonderfall: Division durch 0.
-                if (secondNumber != 0) {
-                    System.out.println(firstNumber + " " + operator + " "
-                            + secondNumber + " = "
-                            + (firstNumber / secondNumber));
+                output = num1 + " " + operator + " " + num2 + " = " + (num1 * num2);
+            } else if (operator.equals("/")) {// Sonderfall: Division durch 0.
+                if (num2 != 0) {
+                    output = num1 + " " + operator + " " + num2 + " = " + (num1 / num2);
                 }
             }
+            System.out.println(output);
 
         } catch (IOException e) {
-            System.out.println("Error while reading input.");
-
+            System.err.println("Error while reading input.");
         } finally {
-            // Nach dem Lesevorgang solltet ihr den BufferedReader schließen, um unerwünschte side effects zu vermeiden.
-            // Um sicherzustellen, dass der BufferedReader auf jeden Fall geschlossen wird, schließen wir den reader in
-            // einem finally-Block. Dieser wird selbst dann ausgeführt, wenn im try-Block eine Exception geworfen wurde.
-            if (reader != null) {
-                try {
-                    reader.close();
-                } catch (IOException ex) {
-                    System.out.println("Error while realising ");
-                }
+            /*
+             *  Nach dem Lesevorgang solltet ihr den BufferedReader schließen, um unerwünschte side effects zu vermeiden.
+             *  Um sicherzustellen, dass der BufferedReader auf jeden Fall geschlossen wird, schließen wir den reader in
+             *  einem finally-Block. Dieser wird selbst dann ausgeführt, wenn im try-Block eine Exception geworfen wurde.
+             */
+            try {
+                reader.close();
+            } catch (IOException ex) {
+                System.out.println("Error while reading input.");
             }
         }
+    }
+
+    /**
+     * Alternative Lösung mit Scanner.
+     * Statt eine eingelesene Zahl manuel von String in eine Zahl umzuwandeln, kann man
+     * die Methode {@link Scanner#nextInt()} nutzen, die das für einen übernimmt und direkt einen int-Wert zurückgibt.
+     * <p>
+     * Zusätzlich wird in dieser Lösung ein switch Statement für die Überprüfung des Operators verwendet.
+     */
+    private void calcWithScanner() {
+        Scanner scanner = new Scanner(new InputStreamReader(System.in));
+
+        int num1 = 0;
+        String operator = "";
+        int num2 = 0;
+
+        /*
+         * Scanner.hasNext() gibt zurück, ob der Scanner überhaupt eine Eingabe erhalten hat.
+         * Wenn das nicht der Fall ist, 'wartet' der Scanner auf den nächsten Input.
+         */
+        if (scanner.hasNext()) {
+            num1 = scanner.nextInt();
+        }
+        if (scanner.hasNext()) {
+            operator = scanner.next();
+        }
+        if (scanner.hasNext()) {
+            num2 = scanner.nextInt();
+        }
+
+        /*
+         * Switch Statement überprüft bei Strings den 'Inhalt' und nicht die Objektreferenz.
+         *
+         * Aus der Java-Dokumentation (https://docs.oracle.com/javase/tutorial/java/nutsandbolts/switch.html):
+         * The String in the switch expression is compared with the expressions associated with each case
+         * label as if the String.equals method were being used.
+         */
+        int result = 0;
+        switch (operator) {
+            case "+":
+                result = num1 + num2;
+                break;
+            case "-":
+                result = num1 - num2;
+                break;
+            case "*":
+                result = num1 * num2;
+                break;
+            case "/":
+                // Sonderfall: Division durch 0.
+                if (num2 != 0) {
+                    result = num1 / num2;
+                }
+                break;
+        }
+        System.out.println(num1 + " " + operator + " " + num2 + " = " + result);
+
+        scanner.close();
     }
 }
 

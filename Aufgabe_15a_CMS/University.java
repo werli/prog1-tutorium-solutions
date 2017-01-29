@@ -29,7 +29,7 @@ public class University {
 
     public static void main(String[] args) {
         University uniPassau = new University(3);
-        uniPassau.arrayOfStudents[0] = new Student("Werli", "Phil", 54321, "Internet Computing BA", 6);
+        uniPassau.arrayOfStudents[0] = new Student("Hans", "Peter", 54321, "Internet Computing BA", 6);
         uniPassau.arrayOfStudents[1] = new Student("Bieber", "Justin", 12345, "Musicology", 3);
         uniPassau.arrayOfStudents[2] = new Student("Manuel", "Neuer", 11111, "Goalkeeping Master", 10);
         uniPassau.printStudents();
@@ -41,8 +41,7 @@ public class University {
     private void printStudents() {
         System.out.println("List of students:");
         for (int i = 0; i < arrayOfStudents.length; i++) {
-            // Um die Studierenden auszugeben, wird für alle Studierenden, also für jedes Array-Element,
-            // die toString-Methode der Student-Klasse genutzt.
+            // Ausgabe des Ergebnisses der toString() Methode von Studierenden
             System.out.println(arrayOfStudents[i]);
         }
 

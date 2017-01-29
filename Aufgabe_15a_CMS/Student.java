@@ -1,8 +1,7 @@
 package Aufgabe_15a_CMS;
 
 /**
- * Erstelle eine Klasse Student mit den Attributen Name, Vorname, Matrikelnummer, Studiengang und Fachsemester.
- * Erstelle anschließend ein Objekt der Klasse Student, mit den Eigenschaften, die auf dich selbst zutreffen.
+ * Diese Klasse repräsentiert einen Studierenden und enthält alle notwenidigen Attribute.
  *
  * @author Phil Werli
  */
@@ -33,7 +32,7 @@ public class Student {
      */
     @Override
     public String toString() {
-        return name + ", " + firstName + " studies " + courseOfStudy + " in his/her " + semester + " semester.";
+        return name + ", " + firstName + " studiert " + courseOfStudy + " im " + semester + ". Semester.";
     }
 
     // Getter und Setter-Methoden, da die Variablen private sind.

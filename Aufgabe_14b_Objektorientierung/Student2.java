@@ -27,18 +27,18 @@ public class Student2 {
         this.semester = semester;
     }
 
-    // Jedes Java-Objekt hat eine default/standardmäßige toString-Methode. Da diese aber nur die Objekt-Klasse und den
-    // "hash value" des Objekts ausgibt, ist es oft sinnvoll eine eigene Methode zu implementieren. Um die default-Methode
-    // zu überschreiben braucht ihr das Keyword "@Override".
-
+    /*
+     * Jede Klasse in Java erbt von der Object Klasse. Das bedeutet auch, dass alle Attribute und Methoden vererbt
+     * werden.
+     * Implementiert man eine eigene Klasse, kann man diese Methoden überschreiben. Das spezifiziert man durch das
+     * Übernehmen des Methodenkopfes (hier 'public String toString()') und durch die Annotation '@Override'.
+     */
     public static void main(String[] args) {
-        // Deklarieren und Initialisieren eines neuen Studenten. Der Konstruktor erwartet hierfür alle Attribute die ihr
-        // als Parameter übergeben müsst.
-        Student2 justin = new Student2("Bieber", "Justin", 12345, "Musicology", 3);
+        // Erstellung eines Student Objekts durch Aufruf dessen Konstruktors mit den spezifizierten Parametern.
+        Student2 manuelneuer = new Student2("Neuer", "Manuel", 11111, "Goalkeeping Master", 3);
 
-        //System.out.println(String) nimmt als Paramter einen String und greift nun automatisch auf die
-        // von euch implementierte toString-Methode zu.
-        System.out.println(justin);
+        // ruft die unten implementierte Methode auf
+        System.out.println(manuelneuer.toString());
     }
 
     /**
@@ -50,11 +50,12 @@ public class Student2 {
      */
     @Override
     public String toString() {
-        return name + ", " + firstName + " studies " + courseOfStudy + " in his/her " + semester + " semester.";
+        return name + ", " + firstName + " studiert " + courseOfStudy + " im " + semester + ". Semester.";
 
-        // alternative Lösung mit String.format(). Gleich Aufbau wie die printf() Methode aus der C/C++.
-        // Wurde von Teilnehmern des Tutoriums vorgeschlagen / benutzt.
-        // return String.format("%s, %s studies %s in his/her %d semester.", name, firstName, courseOfStudy, semester);
+        /* alternative Lösung mit String.format(). Gleich Aufbau wie die printf() Methode aus C/C++.
+         * Wurde von Teilnehmern des Tutoriums vorgeschlagen:
+         * return String.format("%s, %s studiert %s im %d. Semester.", name, firstName, courseOfStudy, semester);
+         */
     }
 
     // Getter und Setter-Methoden, da die Variablen private sind.

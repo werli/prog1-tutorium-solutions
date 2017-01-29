@@ -9,8 +9,8 @@ package Aufgabe_14a_Objektorientierung;
 public class Student {
 
     // Attribute eines Studierenden
-    private String firstName;
     private String name;
+    private String firstName;
     private int studentID;
     private String courseOfStudy;
     private int semester;
@@ -27,9 +27,8 @@ public class Student {
     }
 
     public static void main(String[] args) {
-        // Deklarieren und Initialisieren eines neuen Studenten. Der Konstruktor erwartet hierfür alle Attribute die man
-        // als Parameter übergeben muss.
-        Student justin = new Student("Bieber", "Justin", 12345, "Musicology", 3);
+        // Erstellung eines Student Objekts durch Aufruf dessen Konstruktors mit den spezifizierten Parametern.
+        Student manuelneuer = new Student("Neuer", "Manuel", 11111, "Goalkeeping Master", 3);
     }
 
     // Getter und Setter-Methoden, da die Variablen private sind.
