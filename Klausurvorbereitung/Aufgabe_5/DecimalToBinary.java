@@ -10,7 +10,7 @@ package Klausurvorbereitung.Aufgabe_5;
  * Beispiel: Math.pow(2, 5) entspricht 2 5 und liefert 32 zurück.
  * Beispiel: Der Aufruf decimalToBinay(42) liefert den String "101010" zurück.
  * <p>
- * WICHTIG: für diese Aufgabe gibt es viel Lösungsvarianten!
+ * WICHTIG: für diese Aufgabe gibt es viele Lösungsvarianten!
  *
  * @author Phil Werli
  */
@@ -21,7 +21,6 @@ public class DecimalToBinary {
         System.out.println("Dec: 7 == Bin: " + decimalToBinary(7));
         System.out.println("Dec: 8 == Bin: " + decimalToBinaryWithPow(8));
         System.out.println("Dec: 7 == Bin: " + decimalToBinaryWithPow(7));
-
     }
 
     /**
@@ -56,10 +55,11 @@ public class DecimalToBinary {
         // Variable started verhindert führende Nullen. Wird auf true gesetzt, sobald die erste 1 geschrieben wird.
         boolean started = false;
         for (int i = 31; i >= 0; i--) {
-            if (Math.pow(2, i) <= number) {
-                number -= Math.pow(2, i);
+            double pow = Math.pow(2, i);
+            if (pow <= number) {
+                number -= pow;
 
-                // Konkatenieren rechts des outputs, da die großen Zahlen vor den kleinen überprüft werden sollen
+                // Konkatenieren rechts des outputs, da die großen Zahlen vor den kleinen überprüft werden sollen.
                 output = output + 1;
                 started = true;
             } else if (started) {
@@ -75,8 +75,9 @@ public class DecimalToBinary {
      * @param number die gegebene Zahl, deren Binärdarstellung zurückgegeben wird.
      * @return die Binärdarstellung einer gegebenen Zahl.
      */
-    private static String decimalToBinaryWithGivenMethod(int number) {
-        // ruft die statische Methode toBinaryString(int i) in der Klasse long auf
+    private static String decimalToBinaryWithToBinaryString(int number) {
+        // ruft die statische Methode toBinaryString(int i) in der Klasse Integer / Long auf.
+        // return Integer.toBinaryString(number);
         return Long.toBinaryString(number);
     }
 }

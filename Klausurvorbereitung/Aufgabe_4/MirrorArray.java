@@ -27,9 +27,9 @@ public class MirrorArray {
         // spiegeln des Arrays durch Call by Reference
         mirrorArray(array);
         // Ausgabe des Arrays
-        for (int i = 0; i < array.length; i++) {
-            for (int j = 0; j < array[i].length; j++) {
-                System.out.print(array[i][j] + " ");
+        for (int row = 0; row < array.length; row++) {
+            for (int col = 0; col < array[row].length; col++) {
+                System.out.print(array[row][col] + " ");
             }
             System.out.println();
         }
@@ -43,11 +43,11 @@ public class MirrorArray {
      * @param array das gegebene Array, das gespiegelt wird.
      */
     private static void mirrorArray(int[][] array) {
-        for (int i = 0; i < array.length; i++) {
-            for (int j = 0; j < (array[i].length / 2); j++) {
-                int temp = array[i][j];
-                array[i][j] = array[i][array[i].length - 1 - j];
-                array[i][array[i].length - 1 - j] = temp;
+        for (int row = 0; row < array.length; row++) {
+            for (int col = 0; col < (array[row].length / 2); col++) {
+                int temp = array[row][col];
+                array[row][col] = array[row][array[row].length - 1 - col];
+                array[row][array[row].length - 1 - col] = temp;
             }
         }
     }
