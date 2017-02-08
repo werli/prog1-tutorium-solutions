@@ -4,6 +4,8 @@ package Klausurvorbereitung.Aufgabe_6;
  * Diese Klasse modelliert ein Fußballspiel.
  * <p>
  * Ein Spiel besteht aus zwei Mannschaften und einem String, in dem das Ergebnis abgelegt ist.
+ *
+ * @author Phil Werli
  */
 public class Spiel {
 

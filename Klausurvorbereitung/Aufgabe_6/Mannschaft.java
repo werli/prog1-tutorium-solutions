@@ -6,6 +6,8 @@ package Klausurvorbereitung.Aufgabe_6;
  * Eine Mannschaft besteht aus 7 Spielern.
  * <p>
  * Es gibt eine Statistikkomponente, die für eine Mannschaft den Spieler zurückgibt, der die meisten Tore geschossen hat.
+ *
+ * @author Phil Werli
  */
 public class Mannschaft {
 

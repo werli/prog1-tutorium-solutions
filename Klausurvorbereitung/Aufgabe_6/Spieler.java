@@ -4,6 +4,8 @@ package Klausurvorbereitung.Aufgabe_6;
  * Diese Klasse modelliert einen Fußballspieler.
  * <p>
  * Ein Spieler hat eine Standardposition und eine Nummer an erzielten Toren.
+ *
+ * @author Phil Werli
  */
 public class Spieler {
 
@@ -21,19 +23,19 @@ public class Spieler {
         this.anzahlTore = anzahlTore;
     }
 
-    public int getAnzahlTore() {
-        return anzahlTore;
-    }
-
-    public void setAnzahlTore(int goals) {
-        this.anzahlTore = goals;
-    }
-
     public Position getPosition() {
         return position;
     }
 
     public void setPosition(Position position) {
         this.position = position;
+    }
+
+    public int getAnzahlTore() {
+        return anzahlTore;
+    }
+
+    public void setAnzahlTore(int anzahlTore) {
+        this.anzahlTore = anzahlTore;
     }
 }
