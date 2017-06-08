@@ -35,6 +35,13 @@ public class Fibonacci {
         }
         System.out.println("Die erste Fibonacci-Zahl über " + maximum +
                 " ist die Fibonacci-Zahl von " + i + " und lautet " + fib(i) + ".");
+
+        // alternative Lösung für (b)
+        System.out.println("Rekursiver Lösungansatz für (b):");
+
+        int n = findFirstFibOver(0, maximum);
+        System.out.println("Die erste Fibonacci-Zahl über " + maximum +
+                " ist die Fibonacci-Zahl von " + n + " und lautet " + fib(n) + ".");
     }
 
     /**
@@ -44,13 +51,33 @@ public class Fibonacci {
      * @return Fibonaccizahl der gegebenen Zahl n.
      */
     private static int fib(int n) {
-
         // Deckt fib(0) = 1 und fib(1) = 1 ab.
         if (n == 0 || n == 1) {
             return 1;
         } else {
             // doppelter rekursiver Aufruf deckt fib(n) = fib(n-1) + fib(n-2) ab.
             return fib(n - 1) + fib(n - 2);
+        }
+    }
+
+    /**
+     * Berechnet rekursiv die erste Fibonacci-Zahl über einem
+     * gegebenem Limit und gibt diese zurück.
+     * <p>
+     * Diese rekursive Lösung wurde im Tutorium von einer
+     * Teilnehmerin gelöst und wurde als alternativer
+     * Lösungvorschlag hinzgefügt.
+     *
+     * @param n     Index, welcher um 1 hochgezahlt wird und zurückgegeben wird,
+     *              wenn die erste Zahl über der Obergrenze gefunden ist.
+     * @param limit die Obergrenze der Fibonacci-Zahl.
+     * @return die erste Fibonacci-Zahl über einem gegebenem Limit.
+     */
+    private static int findFirstFibOver(int n, int limit) {
+        if (fib(n) < limit) {
+            return findFirstFibOver(n + 1, limit);
+        } else {
+            return n;
         }
     }
 }
