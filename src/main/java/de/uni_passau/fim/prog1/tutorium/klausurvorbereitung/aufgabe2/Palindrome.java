@@ -15,11 +15,11 @@ public class Palindrome {
 
         // rennEr ist kein Palindrom, da e != E
         char[] rennEr = {'r', 'e', 'n', 'n', 'E', 'r'};
-        System.out.println("Ist " + String.valueOf(rennEr) + " ein Palindrom? " + isPalindrome(rennEr));
+        System.out.println("Ist '" + String.valueOf(rennEr) + "' ein Palindrom? " + (isPalindrome(rennEr) ? "Ja" : "Nein"));
 
         // rentner ist ein Paldindrom
         char[] rentner = {'r', 'e', 'n', 't', 'n', 'e', 'r'};
-        System.out.println("Ist " + String.valueOf(rentner) + " ein Palindrom? " + isPalindrome(rentner));
+        System.out.println("Ist '" + String.valueOf(rentner) + "' ein Palindrom? " + (isPalindrome(rentner) ? "Ja" : "Nein"));
     }
 
     /**
