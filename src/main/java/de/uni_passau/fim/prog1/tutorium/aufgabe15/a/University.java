@@ -20,11 +20,11 @@ public class University {
      * mit der Gesamtzahl der Studierenden anzulegen, da diese für die Größe des Arrays verwendet werden kann.
      * Die Studierenden selbst werden erst später "immatrikuliert"
      *
-     * @param numberOfStudents Anzahl der Studierenden.
+     * @param maxNumberOfStudents Anzahl der Studierenden.
      */
-    public University(int numberOfStudents) {
-        this.numberOfStudents = numberOfStudents;
-        this.arrayOfStudents = new Student[numberOfStudents];
+    public University(int maxNumberOfStudents) {
+        this.numberOfStudents = 0;
+        this.arrayOfStudents = new Student[maxNumberOfStudents];
     }
 
     public static void main(String[] args) {
@@ -32,6 +32,9 @@ public class University {
         uniPassau.arrayOfStudents[0] = new Student("Hans", "Peter", 54321, "Internet Computing BA", 6);
         uniPassau.arrayOfStudents[1] = new Student("Bieber", "Justin", 12345, "Musicology", 3);
         uniPassau.arrayOfStudents[2] = new Student("Manuel", "Neuer", 11111, "Goalkeeping Master", 10);
+
+        uniPassau.setNumberOfStudents(3);
+
         uniPassau.printStudents();
     }
 
@@ -40,7 +43,7 @@ public class University {
      */
     private void printStudents() {
         System.out.println("List of students:");
-        for (int i = 0; i < arrayOfStudents.length; i++) {
+        for (int i = 0; i < numberOfStudents; i++) {
             // Ausgabe des Ergebnisses der toString() Methode von Studierenden
             System.out.println(arrayOfStudents[i]);
         }

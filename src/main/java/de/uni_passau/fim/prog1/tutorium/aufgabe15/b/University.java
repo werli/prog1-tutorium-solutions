@@ -27,11 +27,11 @@ public class University {
      * mit der Gesamtzahl der Studierenden anzulegen, da diese für die Größe des Arrays verwendet werden kann.
      * Die Studierenden selbst werden erst später "immatrikuliert"
      *
-     * @param numberOfStudents Anzahl der Studierenden.
+     * @param maxNumberOfStudents Anzahl der Studierenden.
      */
-    public University(int numberOfStudents) {
-        this.numberOfStudents = numberOfStudents;
-        this.arrayOfStudents = new Student[numberOfStudents];
+    public University(int maxNumberOfStudents) {
+        this.numberOfStudents = 0;
+        this.arrayOfStudents = new Student[maxNumberOfStudents];
 
         //Aufruf der addStudents-Methode im University-Konstruktor
         addStudents();
@@ -49,12 +49,11 @@ public class University {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
         boolean quit = false;
-        int counter = 0;
         /*
          * Schleifenbedingung: Solange der Benutzer Input eingeben möchte
          * und gleichzeitig die Uni noch Platz hat, läuft die Schleife weiter.
          */
-        while (!quit && counter < arrayOfStudents.length) {
+        while (!quit && numberOfStudents < arrayOfStudents.length) {
             try {
                 System.out.println("Vorname:");
                 String firstName = reader.readLine();
@@ -67,18 +66,18 @@ public class University {
                 System.out.println("Fachsemester:");
                 int semester = Integer.parseInt(reader.readLine());
 
-                arrayOfStudents[counter] = new Student(name, firstName, matrNr,
+                arrayOfStudents[numberOfStudents] = new Student(name, firstName, matrNr,
                         studyCourse, semester);
+                numberOfStudents++;
 
-                if (counter < arrayOfStudents.length - 1) {
-                    /* Do not display this line the very last time. */
+                if (numberOfStudents < arrayOfStudents.length) {
+                    // Do not display this line the very last time
                     System.out.println("Weiter? weiter/fertig");
 
                     if (!(reader.readLine().equals("weiter"))) {
                         quit = true;
                     }
                 }
-                counter++;
             } catch (IOException error) {
                 System.out.println("Fehler beim Einlesen.");
             }
@@ -91,7 +90,7 @@ public class University {
     private void printStudents() {
         System.out.println("Liste an Studierenden:");
         // Durchgehen und Ausgeben aller Studierenden
-        for (int i = 0; i < arrayOfStudents.length && arrayOfStudents[i] != null; i++) {
+        for (int i = 0; i < numberOfStudents; i++) {
             System.out.println(arrayOfStudents[i].toString());
         }
     }
