@@ -29,7 +29,7 @@ public class University {
 
     public static void main(String[] args) {
         University uniPassau = new University(3);
-        uniPassau.arrayOfStudents[0] = new Student("Hans", "Peter", 54321, "Internet Computing BA", 6);
+        uniPassau.arrayOfStudents[0] = new Student("Hans", "Peter", 54321, "BA Informatik", 1);
         uniPassau.arrayOfStudents[1] = new Student("Bieber", "Justin", 12345, "Musicology", 3);
         uniPassau.arrayOfStudents[2] = new Student("Manuel", "Neuer", 11111, "Goalkeeping Master", 10);
 

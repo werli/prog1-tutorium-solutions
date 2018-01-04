@@ -32,13 +32,11 @@ public class University {
     public University(int maxNumberOfStudents) {
         this.numberOfStudents = 0;
         this.arrayOfStudents = new Student[maxNumberOfStudents];
-
-        //Aufruf der addStudents-Methode im University-Konstruktor
-        addStudents();
     }
 
     public static void main(String[] args) {
         University uniPassau = new University(5);
+        uniPassau.addStudents();
         uniPassau.printStudents();
     }
 
@@ -56,19 +54,19 @@ public class University {
          */
         while (!quit && numberOfStudents < arrayOfStudents.length) {
             try {
-                System.out.println("Vorname:");
+                System.out.print("Vorname: ");
                 String firstName = reader.readLine();
 
-                System.out.println("Nachname:");
+                System.out.print("Nachname: ");
                 String name = reader.readLine();
 
-                System.out.println("Matrikelnummer:");
+                System.out.print("Matrikelnummer: ");
                 int matrNr = readInteger(reader);
 
-                System.out.println("Studiengang:");
+                System.out.print("Studiengang: ");
                 String studyCourse = reader.readLine();
 
-                System.out.println("Fachsemester:");
+                System.out.print("Fachsemester: ");
                 int semester = readInteger(reader);
 
                 arrayOfStudents[numberOfStudents] = new Student(name, firstName, matrNr,
@@ -121,7 +119,7 @@ public class University {
         boolean success = false;
         if (counter < arrayOfStudents.length) {
             // Do not display this line the very last time.
-            System.out.println("Weiter? weiter/fertig");
+            System.out.print("Weiter? (weiter/fertig): ");
             while (!success) {
                 String input = reader.readLine();
                 if (input.equals("weiter")) {

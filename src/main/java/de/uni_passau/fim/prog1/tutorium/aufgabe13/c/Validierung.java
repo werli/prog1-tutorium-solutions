@@ -19,7 +19,7 @@ public class Validierung {
 
         /* Um zu ermöglichen, dass der Reader das Programm nach einer fehlerhaten Eingabe nicht beendet, sondern
          * weiteren Input annimmt, müssen die Lesevorgange in einer while-Schleife untergebracht werden, die erst
-         * verlassen wir, wenn der korrekte Input eingelesen wurde.
+         * verlassen wird, wenn der korrekte Input eingelesen wurde.
          */
         try {
             int num1 = 0;
