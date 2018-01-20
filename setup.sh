@@ -6,27 +6,27 @@ help_message="Create a zip file for exercises. If added, parameter should be one
 
 function zip_exercise_1() {
     echo "Creating solution for exercise 1"
-    zip -r tutorium_1_lsg.zip src/main/java/de/uni_passau/fim/prog1/tutorium/aufgabe{01,02,03,04,05,06,07} $gradle_files > /dev/null
+    zip -r prog1_tut_solutions_1.zip src/main/java/de/uni_passau/fim/prog1/tutorium/aufgabe{01,02,03,04,05,06,07} $gradle_files > /dev/null
 }
 
 function zip_exercise_2() {
     echo "Creating solution for exercise 2"
-    zip -r tutorium_2_lsg.zip src/main/java/de/uni_passau/fim/prog1/tutorium/aufgabe{08,09,10,11,12} $gradle_files > /dev/null
+    zip -r prog1_tut_solutions_2.zip src/main/java/de/uni_passau/fim/prog1/tutorium/aufgabe{08,09,10,11,12} $gradle_files > /dev/null
 }
 
 function zip_exercise_3() {
     echo "Creating solution for exercise 3"
-    zip -r tutorium_3_lsg.zip src/main/java/de/uni_passau/fim/prog1/tutorium/aufgabe{13,14,15,16} $gradle_files > /dev/null
+    zip -r prog1_tut_solutions_3.zip src/main/java/de/uni_passau/fim/prog1/tutorium/aufgabe{13,14,15,16} $gradle_files > /dev/null
 }
 
 function zip_exercise_4() {
     echo "Creating solution for exercise 4"
-    zip -r tutorium_4_lsg.zip src/main/java/de/uni_passau/fim/prog1/tutorium/klausurvorbereitung $gradle_files > /dev/null
+    zip -r prog1_tut_solutions_4.zip src/main/java/de/uni_passau/fim/prog1/tutorium/klausurvorbereitung $gradle_files > /dev/null
 }
 
 function zip_all_exercises() {
     echo "Creating solution for all exercises"
-    zip -r tutorium_all_lsg.zip src $gradle_files > /dev/null
+    zip -r prog1_tut_solutions_all.zip src $gradle_files > /dev/null
 }
 
 if [[ "$1" == "" ]]; then
