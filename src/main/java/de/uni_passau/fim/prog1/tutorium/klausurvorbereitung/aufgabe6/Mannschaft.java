@@ -30,7 +30,7 @@ public class Mannschaft {
     public Spieler getTopScorer() {
         Spieler topScorer = null;
         int mostGoals = 0;
-        for (int i = 0; i < spieler.length; i++) {
+        for (int i = 0; i < spieler.length && spieler[i] != null; i++) {
             if (spieler[i].getAnzahlTore() > mostGoals) {
                 mostGoals = spieler[i].getAnzahlTore();
                 topScorer = spieler[i];

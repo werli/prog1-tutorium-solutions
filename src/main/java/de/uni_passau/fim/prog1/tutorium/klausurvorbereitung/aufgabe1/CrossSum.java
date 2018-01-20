@@ -1,8 +1,8 @@
 package de.uni_passau.fim.prog1.tutorium.klausurvorbereitung.aufgabe1;
 
 /**
- * Erstelle eine Methode crossSum, die für eine übergebene natürliche Zahl deren Quersum-
- * me berechnet und auf der Konsole ausgibt.
+ * Erstelle eine Methode crossSum, die für eine übergebene natürliche Zahl deren Quersumme
+ * berechnet und auf der Konsole ausgibt.
  * <blockquote><pre>
  * Beispiel: Quersumme von 232 : 2 + 3 + 2 = 7
  * </pre></blockquote>

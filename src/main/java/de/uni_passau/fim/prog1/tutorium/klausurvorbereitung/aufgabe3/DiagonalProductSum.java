@@ -30,7 +30,7 @@ public class DiagonalProductSum {
     }
 
     /**
-     * Brechnet für ein übergebenes zweidimensionales quadratisches Array das Produkt einmal der fallenden
+     * Berechnet für ein übergebenes zweidimensionales quadratisches Array das Produkt einmal der fallenden
      * und einmal der steigenden Diagonale. Die Summe der beiden Produkte wird dann zurückgegeben.
      * <p>
      * Falls ein Eintrag der Matrix den Wert 0 hat, wird dieser übersprungen, da sonst das ganze Produkt 0 ist.
