@@ -19,44 +19,47 @@ public class ListTest {
     }
 
     private static void testStringList() {
-        MyList<String> strings = new MyList<>();
-        strings.add("hello");
-        strings.add("welt");
+        MyList<String> stringList = new MyList<>();
+        stringList.add("hello");
+        stringList.add("everyone");
 
-        // erstetzt 'welt'
-        strings.add("world", 1);
-        System.out.println("strings isEmpty? " + strings.isEmpty());
-        System.out.println("strings size? " + strings.size());
+        // fügt "world" an Index 1 ein, zwischen "hello" und "everyone"
+        stringList.add("world", 1);
 
-        System.out.println(strings.get(0));
-        System.out.println(strings.get(1));
+        System.out.println("strings isEmpty? " + stringList.isEmpty());
+        System.out.println("strings size? " + stringList.size());
 
-        strings.print();
+        System.out.println(stringList.get(0));
+        System.out.println(stringList.get(1));
 
-        strings.clear();
+        stringList.print();
+
+        stringList.clear();
         System.out.println("strings cleared");
-        System.out.println("strings isEmpty? " + strings.isEmpty());
-        System.out.println("strings size? " + strings.size());
+        System.out.println("strings isEmpty? " + stringList.isEmpty());
+        System.out.println("strings size? " + stringList.size());
     }
 
     private static void testIntegerList() {
-        MyList<Integer> ints = new MyList<>();
-        ints.add(123456789);
-        ints.add(23456789);
+        MyList<Integer> integerList = new MyList<>();
+        integerList.add(12);
+        integerList.add(34);
+        integerList.add(56);
+        integerList.add(90);
 
-        // ersetzt '23456789'
-        ints.add(987654321, 1);
+        // fügt "world" an Index 3 ein, zwischen "56" und "90"
+        integerList.add(78, 3);
 
-        System.out.println("ints isEmpty? " + ints.isEmpty());
-        System.out.println("ints size? " + ints.size());
+        System.out.println("ints isEmpty? " + integerList.isEmpty());
+        System.out.println("ints size? " + integerList.size());
 
-        System.out.println(ints.get(0));
-        System.out.println(ints.get(1));
+        System.out.println(integerList.get(0));
+        System.out.println(integerList.get(1));
 
-        ints.print();
+        integerList.print();
 
-        System.out.println("ints remove at pos 1? " + ints.remove(1));
-        System.out.println("ints size? " + ints.size());
-        ints.print();
+        System.out.println("ints remove at pos 1? " + integerList.remove(1));
+        System.out.println("ints size? " + integerList.size());
+        integerList.print();
     }
 }

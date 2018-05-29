@@ -42,30 +42,29 @@ public class MyList {
     }
 
     /**
-     * Fügt einen übergebenen Wert an eine übergebene Position in die Liste hinzu.
-     * Gibt es noch kein Element an der übergebenen Position, wird der Wert hinten hinzugefügt.
+     * Fügt einen neuen Wert an der übergebenen Position hinzu. Verschiebt das
+     * Element an der Position und alle nachfolgenden Elemente nach rechts. Ist
+     * die Position größer als die momentane Anzahl an Listenelementen, soll
+     * eine {@link IndexOutOfBoundsException} geworfen werden.
      *
      * @param value Wert, welcher hinzugefügt wird.
      * @param pos   Position, an welche der Wert hinzugefügt wird.
+     * @throws IndexOutOfBoundsException Wenn die übergebene Position {@code < 0} oder {@code > size()} ist.
      */
-    public void add(String value, int pos) {
-        if (value == null || pos < 0) {
-            return;
-        }
-
-        // Check, ob es für die Position schon ein Listenelement gibt
-        if (pos >= size) {
-
-            // gibt es nicht? Füge Wert hinten hinzu
-            add(value);
-            return;
+    public void add(String value, int pos) throws IndexOutOfBoundsException {
+        if (pos < 0 || pos > size) {
+            throw new IndexOutOfBoundsException("Übergebene Position außerhalb des erwarteten Raumes.");
         }
 
         MyNode node = front;
-        for (int i = 0; i < pos; i++) {
+        for (int i = 0; i < pos - 1; i++) {
             node = node.getNext();
         }
-        node.setData(value);
+
+        final MyNode nextNode = node.getNext();
+        final MyNode newNode = new MyNode(value);
+        node.setNext(newNode);
+        newNode.setNext(nextNode);
     }
 
     /**
