@@ -76,7 +76,7 @@ public class Taschenrechner {
             try {
                 reader.close();
             } catch (IOException ex) {
-                System.out.println("Error while reading input.");
+                System.err.println("Error closing reader.");
             }
         }
     }
