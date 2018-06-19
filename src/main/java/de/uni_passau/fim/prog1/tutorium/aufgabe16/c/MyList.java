@@ -49,17 +49,22 @@ public class MyList<E> {
     public void add(E value, int pos) throws IndexOutOfBoundsException {
         if (pos < 0 || pos > size) {
             throw new IndexOutOfBoundsException("Übergebene Position außerhalb des erwarteten Raumes.");
-        }
+        } else if (pos == 0) {
+            final MyNode<E> newFront = new MyNode<>(value);
+            newFront.setNext(front);
+            front = newFront;
+        } else {
+            MyNode<E> node = front;
+            for (int i = 0; i < pos - 1; i++) {
+                node = node.getNext();
+            }
 
-        MyNode<E> node = front;
-        for (int i = 0; i < pos - 1; i++) {
-            node = node.getNext();
+            final MyNode<E> nextNode = node.getNext();
+            final MyNode<E> newNode = new MyNode<>(value);
+            node.setNext(newNode);
+            newNode.setNext(nextNode);
         }
-
-        final MyNode<E> nextNode = node.getNext();
-        final MyNode<E> newNode = new MyNode<>(value);
-        node.setNext(newNode);
-        newNode.setNext(nextNode);
+        size++;
     }
 
     /**
@@ -140,21 +145,19 @@ public class MyList<E> {
         }
         if (pos == 0) {
             front = front.getNext();
-            return true;
+        } else {
+            MyNode<E> node = front;
+            for (int i = 0; i < (pos - 1); i++) {
+                node = node.getNext();
+            }
+
+            MyNode<E> removeNode = node.getNext();
+            MyNode<E> next = removeNode.getNext();
+
+            node.setNext(next);
         }
-
-        MyNode<E> node = front;
-        for (int i = 0; i < (pos - 1); i++) {
-            node = node.getNext();
-        }
-
-        MyNode<E> removeNode = node.getNext();
-        MyNode<E> next = removeNode.getNext();
-
-        node.setNext(next);
 
         size--;
-
         return true;
     }
 

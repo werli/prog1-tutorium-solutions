@@ -20,17 +20,16 @@ public class ListTest {
 
     private static void testStringList() {
         MyList<String> stringList = new MyList<>();
-        stringList.add("hello");
+        stringList.add("hello1");
         stringList.add("everyone");
 
-        // fügt "world" an Index 1 ein, zwischen "hello" und "everyone"
+        // fügt "world" an Index 1 ein, zwischen "hello1" und "everyone"
         stringList.add("world", 1);
+        // fügt "hello" vorne an die Liste an
+        stringList.add("hello0", 0);
 
         System.out.println("strings isEmpty? " + stringList.isEmpty());
         System.out.println("strings size? " + stringList.size());
-
-        System.out.println(stringList.get(0));
-        System.out.println(stringList.get(1));
 
         stringList.print();
 
@@ -47,19 +46,24 @@ public class ListTest {
         integerList.add(56);
         integerList.add(90);
 
-        // fügt "world" an Index 3 ein, zwischen "56" und "90"
+        // fügt "78" an Index 3 ein, zwischen "56" und "90"
         integerList.add(78, 3);
+        // fügt "8" vorne an die Liste an
+        integerList.add(8, 0);
 
         System.out.println("ints isEmpty? " + integerList.isEmpty());
         System.out.println("ints size? " + integerList.size());
-
-        System.out.println(integerList.get(0));
-        System.out.println(integerList.get(1));
 
         integerList.print();
 
         System.out.println("ints remove at pos 1? " + integerList.remove(1));
         System.out.println("ints size? " + integerList.size());
+
+        integerList.print();
+
+        System.out.println("ints remove at pos 0? " + integerList.remove(0));
+        System.out.println("ints size? " + integerList.size());
+
         integerList.print();
     }
 }
