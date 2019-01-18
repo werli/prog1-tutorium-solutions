@@ -44,7 +44,10 @@ public class CrossSum {
         int sum = 0;
         char[] chars = String.valueOf(number).toCharArray();
         for (int i = 0; i < chars.length; i++) {
-            sum += Integer.valueOf(String.valueOf(chars[i]));
+            sum += Character.getNumericValue(chars[i]);
+
+            // Stattdessen funkioniert auch Folgendes
+            // sum += Integer.valueOf(String.valueOf(chars[i]));
         }
         return sum;
     }
