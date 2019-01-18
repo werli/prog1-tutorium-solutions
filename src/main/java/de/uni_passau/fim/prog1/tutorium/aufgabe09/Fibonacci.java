@@ -3,11 +3,11 @@ package de.uni_passau.fim.prog1.tutorium.aufgabe09;
 /**
  * Leonardo Fibonacci hat im Jahr 1202 die Fibonacci-Folge entwickelt, um das Wachstum
  * einer Kaninchenpopulation zu beschreiben. Die Folge sieht wie folgt aus:
- * 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, . . .
+ * 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, . . .
  * Dabei ist jede Zahl die Summe der beiden vorangehenden Zahlen. Die formale Definition
  * lautet:
  * <code>
- * fib(0) = 1
+ * fib(0) = 0
  * fib(1) = 1
  * fib(n) = fib(n−1) + fib(n−2)
  * </code>
@@ -52,7 +52,9 @@ public class Fibonacci {
      */
     private static int fib(int n) {
         // Deckt fib(0) = 1 und fib(1) = 1 ab.
-        if (n == 0 || n == 1) {
+        if (n == 0) {
+            return 0;
+        } else if (n == 1) {
             return 1;
         } else {
             // doppelter rekursiver Aufruf deckt fib(n) = fib(n-1) + fib(n-2) ab.
