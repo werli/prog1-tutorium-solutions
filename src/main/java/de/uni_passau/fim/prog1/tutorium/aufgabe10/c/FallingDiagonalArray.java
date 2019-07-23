@@ -24,7 +24,7 @@ public class FallingDiagonalArray {
         int size = 5;
         /*
          * Der Wert eines boolean ist ohne explizierte Deklaration <code>false</code>.
-         * Das heißt, das unten erstelle zweidimensionale Array besteht erstmal NUR aus <code>false</code> Werten.
+         * Das heißt, das unten erstellte zweidimensionale Array besteht erstmal NUR aus <code>false</code> Werten.
          */
         boolean[][] array = new boolean[size][size];
 

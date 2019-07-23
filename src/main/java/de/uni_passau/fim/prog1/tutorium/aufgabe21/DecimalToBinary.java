@@ -1,4 +1,4 @@
-package de.uni_passau.fim.prog1.tutorium.klausurvorbereitung.aufgabe5;
+package de.uni_passau.fim.prog1.tutorium.aufgabe21;
 
 /**
  * Schreibe eine Methode decimalToBinay, die eine übergebene natürliche Zahl iterativ in

@@ -1,4 +1,4 @@
-package de.uni_passau.fim.prog1.tutorium.klausurvorbereitung.aufgabe4;
+package de.uni_passau.fim.prog1.tutorium.aufgabe20;
 
 /**
  * Schreibe eine Methode mirrorArray, die ein übergebenes zweidimensionales Array an der

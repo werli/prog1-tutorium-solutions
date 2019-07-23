@@ -1,4 +1,4 @@
-package de.uni_passau.fim.prog1.tutorium.klausurvorbereitung.aufgabe1;
+package de.uni_passau.fim.prog1.tutorium.aufgabe17;
 
 /**
  * Erstelle eine Methode crossSum, die für eine übergebene natürliche Zahl deren Quersumme

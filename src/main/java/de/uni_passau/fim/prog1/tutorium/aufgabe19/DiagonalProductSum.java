@@ -1,4 +1,4 @@
-package de.uni_passau.fim.prog1.tutorium.klausurvorbereitung.aufgabe3;
+package de.uni_passau.fim.prog1.tutorium.aufgabe19;
 
 /**
  * Erstelle eine Methode diagonalProductSum, die für ein übergebenes zweidimensionales

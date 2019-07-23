@@ -1,4 +1,4 @@
-package de.uni_passau.fim.prog1.tutorium.klausurvorbereitung.aufgabe2;
+package de.uni_passau.fim.prog1.tutorium.aufgabe18;
 
 /**
  * Erstelle eine Methode isPalindrom, welche für ein übergebenes char-Array prüft, ob es
