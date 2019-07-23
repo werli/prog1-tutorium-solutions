@@ -24,6 +24,11 @@ function zip_exercise_4() {
     zip -r prog1_tut_solutions_4.zip src/main/java/de/uni_passau/fim/prog1/tutorium/aufgabe{17,18,19,20,21} $gradle_files > /dev/null
 }
 
+function zip_exercise_5() {
+    echo "Creating solution for exercise 5"
+    zip -r prog1_tut_solutions_5.zip src/main/java/de/uni_passau/fim/prog1/tutorium/aufgabe{22,23} $gradle_files > /dev/null
+}
+
 function zip_all_exercises() {
     echo "Creating solution for all exercises"
     zip -r prog1_tut_solutions_all.zip src $gradle_files > /dev/null
@@ -34,6 +39,7 @@ if [[ "$1" == "" ]]; then
     zip_exercise_2
     zip_exercise_3
     zip_exercise_4
+    zip_exercise_5
     zip_all_exercises
 elif [[ "$1" == "1" ]]; then
     zip_exercise_1
@@ -43,6 +49,8 @@ elif [[ "$1" == "3" ]]; then
     zip_exercise_3
 elif [[ "$1" == "4" ]]; then
     zip_exercise_4
+elif [[ "$1" == "5" ]]; then
+    zip_exercise_5
 elif [[ "$1" == "all" ]]; then
     zip_all_exercises
 else
