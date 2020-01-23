@@ -38,16 +38,15 @@ public class Taschenrechner {
             String input2 = reader.readLine();
 
             /*
-             * Der InputStreamReader liest einen String ein, den ihr erst in int bzw. Integer umwandeln (sog. parsen)
-             * müsst, um mit ihnen rechnen zu können. Dafür verwendet man die parseInt(String input) der Integer Klasse.
+             * Der BufferedReader liest einen String ein, den ihr erst in eine Zahl umwandeln ("parsen") müsst, um
+             * mit ihr rechnen zu können. Dafür verwendet man beispielsweise Integer.parseInt(String input).
              */
             int num1 = Integer.parseInt(input1);
             int num2 = Integer.parseInt(input2);
 
             /*
-             * Wichtig: Strings müssen mit der {@link Object#equals(Object)} Methode der {@link Object} Klasse
-             * verglichen werden. Der Operator '==' vergleich die Objekt-Referenzen, nicht ob der Inhalt
-             * der Objekte gleich ist.
+             * Wichtig: Strings müssen mit der {@link String#equals(Object)} Methode verglichen werden. Der
+             * Operator '==' vergleicht die Objekt-Referenzwerte, nicht den tatsächlichen Inhalt der Objekte.
              */
             String output = "";
             if (operator.equals("+")) {
@@ -69,7 +68,7 @@ public class Taschenrechner {
             System.err.println("Error while reading input.");
         } finally {
             /*
-             *  Nach dem Lesevorgang solltet ihr den BufferedReader schließen, um unerwünschte side effects zu vermeiden.
+             *  Nach dem Lesevorgang solltet ihr den BufferedReader schließen, um unerwünschte Seiteneffekte zu vermeiden.
              *  Um sicherzustellen, dass der BufferedReader auf jeden Fall geschlossen wird, schließen wir den reader in
              *  einem finally-Block. Dieser wird selbst dann ausgeführt, wenn im try-Block eine Exception geworfen wurde.
              */

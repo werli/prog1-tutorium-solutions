@@ -34,8 +34,12 @@ public class Begruessung {
      */
     public static void main(String[] args) {
         /*
-         * Initialisierung des BufferedReader. Dem BufferedReader muss als Parameter als Eingabequelle
-         * ein InputStreamReader über den Konstruktur mitgegeben werden.
+         * Initialisierung des BufferedReader. Dem BufferedReader kann als Parameter eine Eingabequelle
+         * über den Konstruktur mitgegeben werden. Es muss eine Instanz der Klasse 'Reader' sein.
+         * Das könnte beispielsweise ein FileReader, ein StringReader oder ein InputStreamReader sein.
+         * System.out ist schon bekannt und ein OutputStream. Das Gegenstück dazu ist System.in, ein InputStream
+         * der Daten von der Konsole einlesen kann.
+         *
          * Der InputStreamReader dekodiert die Bytes, die ihr in der Konsole eingebt, in Characters.
          * Der BufferedReader bietet einen Buffer, der es ermöglicht, den Input effizienter einzulesen.
          */
@@ -45,8 +49,8 @@ public class Begruessung {
 
         /*
          * Initialisierung des Scanners. Dem Scanner muss als Parameter eine Eingabequelle über den Konstruktur
-         * mitgegeben werden. Nachdem die Eingaben der Konsole eingelesen werden sollen, wird, wie oben, der
-         * InputStreamReader verwendet.
+         * mitgegeben werden. Nachdem die Eingaben der Konsole eingelesen werden sollen, kann man direkt
+         * einen InputStream angeben. Wie oben wird wieder System.in gewäht.
          */
         Scanner scanner = new Scanner(new InputStreamReader(System.in));
 
@@ -56,8 +60,21 @@ public class Begruessung {
 
         /*
          * Lesevorgang durch den BufferedReader und Speicherung der Eingabe im String `input1`.
-         * Der Lesevorgang könnte eine IOException zur Folge haben, nachdem diese aber hier zu
-         * vernachlässichen ist, kann man sie im Methodenkopf durch `throws` werfen.
+         * Beim Lesevorgang mit readLine() könnten potentiell Fehler auftreten. Ein einfaches Beispiels ist hier
+         * Das Lesen einer Quelle aus dem Internet ohne Verbindung.
+         * Solch ein Verhalten ist zwar die Ausnahme, trotzdem möchte man damit sinnvoll umgehen.
+         * Hierbei verwendet man ein try / catch Konstrukt. "Ich versuche etwas auszuführen, scheitert jedoch
+         * mein Programm im try Block wird der catch Block aufgerufen".
+         * Der catch Block hat noch einen Parameter, hier eine IOException. Die Methode readline() spezifiziert im
+         * Methodenkopf "throws IOException", dass bei einem Aufruf diese Exception auftreten könnte.
+         * Konrekt wird bei einer Fehlersituation der Code "throw new IOException" aufgerufen, also eine Instanz
+         * der Klasse IOException erstellt und geworfen. Exakt diese Instanz wird dann dem catch Block übergeben.
+         *
+         * Eine IOException ist eine "checked" Exception. Der Compiler checkt, ob diese Exception behandelt wird.
+         * Ohne try / catch Konstrukt würde das Programm also nicht kompilieren.
+         * Eine andere Möglichkeit wäre die Exception an die aufrufende Methode zu übergeben, dafür würde man in
+         * dieser Methode "throws IOException" spezifizieren, genauso wie es in readLine() definiert ist.
+         * Die Auswahl der Ausnahmebehandlung kommt auf die Funktionalität der Methode an.
          */
         try {
             String input1 = bufferedReader.readLine();
@@ -72,8 +89,12 @@ public class Begruessung {
 
         /*
         * Lesevorgang durch den Scanner und Speicherung der Eingabe im String `input2`.
-        * Ähnlich wie beim BufferedReader kann eine IOException (oder Subklassen von IOException)
-        * auftreten. Diese wird wie oben auch im Methodenkopf durch `throws` geworfen.
+        * Ähnlich wie beim BufferedReader kann eine Exception auftreten.
+        * Konrekt kann eine NoSuchElementException auftreten, eine "unchecked" Exception.
+        * Solche "unchecked" Exceptions werden nicht durch den Compiler überprüft. Das Programm kompiliert zuerst,
+        * sobald die Exception auftritt und nicht behandelt wird, stürzt das Programm leider ab.
+        * Unchecked Exceptions weisen des öfteren auf Programmierfehler hin, oder signalisieren, dass sich das
+        * Programm von dem aufgetretenen Ausnahmeverhalten nicht erholen kann.
         */
         try {
             String input2 = scanner.nextLine();

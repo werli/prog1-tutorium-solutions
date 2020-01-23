@@ -16,9 +16,9 @@ public class University {
     private Student[] arrayOfStudents;
 
     /**
-     * Konstruktor zum Erstellen eines neuen University-Objects. Hier ist es sinnvoll, eine neue Universität direkt
+     * Konstruktor zum Erstellen eines neuen University Objekts. Hier ist es sinnvoll, eine neue Universität direkt
      * mit der Gesamtzahl der Studierenden anzulegen, da diese für die Größe des Arrays verwendet werden kann.
-     * Die Studierenden selbst werden erst später "immatrikuliert"
+     * Die Studierenden selbst werden erst später "immatrikuliert".
      *
      * @param maxNumberOfStudents Anzahl der Studierenden.
      */

@@ -31,7 +31,8 @@ public class Student {
      * Jede Klasse in Java erbt von der Object Klasse. Das bedeutet auch, dass alle Attribute und Methoden vererbt
      * werden.
      * Implementiert man eine eigene Klasse, kann man diese Methoden überschreiben. Das spezifiziert man durch das
-     * Übernehmen des Methodenkopfes (hier 'public String toString()') und durch die Annotation '@Override'.
+     * Übernehmen des Methodenkopfes (hier 'public String toString()'). Zusätzlich kann man dem Compiler noch
+     * zusätzlich mit der Annotation '@Override' die Überschreibung signalisieren.
      */
     public static void main(String[] args) {
         // Erstellung eines Student Objekts durch Aufruf dessen Konstruktors mit den spezifizierten Parametern.

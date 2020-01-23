@@ -18,8 +18,8 @@ public class Validierung {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
         /* Um zu ermöglichen, dass der Reader das Programm nach einer fehlerhaten Eingabe nicht beendet, sondern
-         * weiteren Input annimmt, müssen die Lesevorgange in einer while-Schleife untergebracht werden, die erst
-         * verlassen wird, wenn der korrekte Input eingelesen wurde.
+         * weiteren Input annimmt, müssen die Lesevorgänge in einer while-Schleife untergebracht werden, die erst
+         * verlassen wird, sobald korrekter Input eingelesen wurde.
          */
         try {
             int num1 = 0;
@@ -47,8 +47,10 @@ public class Validierung {
                  * Alternative mit Regular Expressions.
                  * if (operator.matches("\\+|-|\\*|/")) {...}
                  */
-                if (operator.equals("+") || operator.equals("-")
-                        || operator.equals("*") || operator.equals("/")) {
+                if (operator.equals("+")
+                        || operator.equals("-")
+                        || operator.equals("*")
+                        || operator.equals("/")) {
                     success = true;
                 } else {
                     System.out.println("Bitte einen validen Operator eingeben!");
@@ -61,13 +63,12 @@ public class Validierung {
                     String input = reader.readLine();
                     num2 = Integer.parseInt(input);
                     if (operator.equals("/") && num2 == 0) {
-                        throw new ArithmeticException();
+                        System.out.println("Division durch 0 ist nicht zulässig. Bitte eine andere Zahl eingeben.");
+                        continue;
                     }
                     success = true;
                 } catch (NumberFormatException error) {
                     System.out.println("Bitte eine Zahl eingeben!");
-                } catch (ArithmeticException error) {
-                    System.out.println("Division durch 0 ist nicht zulässig. Bitte eine andere Zahl eingeben.");
                 }
             }
 
