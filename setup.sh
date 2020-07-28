@@ -26,7 +26,7 @@ function zip_exercise_4() {
 
 function zip_exercise_5() {
     echo "Creating solution for exercise 5"
-    zip -r prog1_tut_solutions_5.zip src/main/java/de/uni_passau/fim/prog1/tutorium/aufgabe{22,23} $gradle_files > /dev/null
+    zip -r prog1_tut_solutions_5.zip src/main/java/de/uni_passau/fim/prog1/tutorium/aufgabe{22,23,24} $gradle_files > /dev/null
 }
 
 function zip_all_exercises() {

@@ -1,4 +1,4 @@
-package de.uni_passau.fim.prog1.tutorium.aufgabe22;
+package de.uni_passau.fim.prog1.tutorium.aufgabe23;
 
 import java.util.ArrayList;
 import java.util.Arrays;
