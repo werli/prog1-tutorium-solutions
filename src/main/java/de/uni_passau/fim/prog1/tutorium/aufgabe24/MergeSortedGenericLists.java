@@ -9,8 +9,8 @@ import de.uni_passau.fim.prog1.tutorium.aufgabe23.MergeSortedIntegerLists;
 /**
  * Erweitere die Methode aus {@link MergeSortedIntegerLists} um Generics. Die Listenelemente sollen das Interface
  * {@link Comparable} implementieren. Schaue auf der
- * <a href="https://docs.oracle.com/javase/10/docs/api/java/lang/Comparable.html">Dokumentationseite</a>, wie dir die
- * Methoden des Interfaces bei der Sortierung helfen können.
+ * <a href="https://docs.oracle.com/en/java/javase/13/docs/api/java.base/java/lang/Comparable.html">Dokumentationseite</a>,
+ * wie dir die Methoden des Interfaces bei der Sortierung helfen können.
  *
  * @author <a href="https://github.com/werli">Phil Werli<a/>
  */

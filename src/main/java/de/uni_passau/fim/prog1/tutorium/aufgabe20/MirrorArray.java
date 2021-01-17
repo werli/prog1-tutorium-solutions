@@ -24,9 +24,7 @@ public class MirrorArray {
                 {9, 8, 2},
                 {2, 0, 4, 1},
                 {3, 2, 3, 5, 3}};
-        // Spiegelung des Arrays durch Call by Reference
         mirrorArray(array);
-        // Ausgabe des Arrays
         for (int row = 0; row < array.length; row++) {
             for (int col = 0; col < array[row].length; col++) {
                 System.out.print(array[row][col] + " ");
